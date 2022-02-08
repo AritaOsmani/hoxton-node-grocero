@@ -1,25 +1,9 @@
 // import './style.css'
 import './styles/index.css'
 import './styles/reset.css'
-
-
-type AvailableProduct = {
-  id: string
-  name: string
-  price: number
-  quantity: number
-}
-
-type BasketItem = {
-  id: string
-  name: string
-  quantity: number
-}
-
-type State = {
-  availableProducts: AvailableProduct[]
-  basket: BasketItem[]
-}
+import { AvailableProduct } from './Types/AvailableProductType';
+import { BasketItem } from './Types/BasketItemType';
+import State from './Types/StateType';
 
 const state: State = {
   availableProducts: [
@@ -155,6 +139,7 @@ function renderTotal() {
   if (spanEl === null) return
   spanEl.textContent = '£' + getTotal().toFixed(2);
 }
+
 function createStoreItems(product: AvailableProduct) {
   if (listContainer === null) return
   const listItem = document.createElement('li');
